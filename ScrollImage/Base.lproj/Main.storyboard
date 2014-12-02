@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ScrollImage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,60 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="pMj-jk-2dg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2484" translatesAutoresizingMaskIntoConstraints="NO" id="xgQ-Wg-Ere">
+                                        <rect key="frame" x="250" y="211" width="100" height="178"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="36c-LE-hPH"/>
+                                            <constraint firstAttribute="height" constant="178" id="SbM-vu-52u"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xgQ-Wg-Ere" secondAttribute="bottom" constant="211" id="3Cn-IQ-ckr" userLabel="bottom"/>
+                                    <constraint firstItem="xgQ-Wg-Ere" firstAttribute="top" secondItem="pMj-jk-2dg" secondAttribute="top" constant="211" id="7QG-jV-mde" userLabel="top"/>
+                                    <constraint firstAttribute="trailing" secondItem="xgQ-Wg-Ere" secondAttribute="trailing" constant="250" id="uno-ig-Sag" userLabel="right"/>
+                                    <constraint firstItem="xgQ-Wg-Ere" firstAttribute="leading" secondItem="pMj-jk-2dg" secondAttribute="leading" constant="250" id="zdl-MX-CZ7" userLabel="left"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="FiF-e2-xlN"/>
+                                    <outletCollection property="gestureRecognizers" destination="wTM-hM-5Eb" appends="YES" id="zD5-vY-SDp"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pMj-jk-2dg" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="2DM-06-bbH"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="pMj-jk-2dg" secondAttribute="bottom" id="HlI-MO-GgS"/>
+                            <constraint firstItem="pMj-jk-2dg" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="KaF-pt-oum"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pMj-jk-2dg" secondAttribute="trailing" constant="-16" id="UL3-RC-z46"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="xgQ-Wg-Ere" id="Rm8-9d-lGh"/>
+                        <outlet property="imageViewConstraintBottom" destination="3Cn-IQ-ckr" id="nfG-Kd-1Bw"/>
+                        <outlet property="imageViewConstraintHeight" destination="SbM-vu-52u" id="fFS-tr-FAJ"/>
+                        <outlet property="imageViewConstraintLeft" destination="zdl-MX-CZ7" id="Iwc-Xb-Byw"/>
+                        <outlet property="imageViewConstraintRight" destination="uno-ig-Sag" id="dLw-sY-bvj"/>
+                        <outlet property="imageViewConstraintTop" destination="7QG-jV-mde" id="Dzm-Lu-y2o"/>
+                        <outlet property="imageViewConstraintWidth" destination="36c-LE-hPH" id="ORq-0i-hgJ"/>
+                        <outlet property="scrollView" destination="pMj-jk-2dg" id="fAt-bQ-yd7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="wTM-hM-5Eb">
+                    <connections>
+                        <action selector="onTapGesture:" destination="vXZ-lx-hvc" id="kn7-3h-V37"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="IMG_2484" width="640" height="960"/>
+    </resources>
 </document>

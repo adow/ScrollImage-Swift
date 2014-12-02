@@ -12,18 +12,7 @@
 		68C006161A2CAD4C0033AAE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C006141A2CAD4C0033AAE7 /* Main.storyboard */; };
 		68C006181A2CAD4C0033AAE7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68C006171A2CAD4C0033AAE7 /* Images.xcassets */; };
 		68C0061B1A2CAD4C0033AAE7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C006191A2CAD4C0033AAE7 /* LaunchScreen.xib */; };
-		68C006271A2CAD4C0033AAE7 /* ScrollImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C006261A2CAD4C0033AAE7 /* ScrollImageTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		68C006211A2CAD4C0033AAE7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 68C006031A2CAD4C0033AAE7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 68C0060A1A2CAD4C0033AAE7;
-			remoteInfo = ScrollImage;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		68C0060B1A2CAD4C0033AAE7 /* ScrollImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,20 +22,10 @@
 		68C006151A2CAD4C0033AAE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		68C006171A2CAD4C0033AAE7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		68C0061A1A2CAD4C0033AAE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		68C006201A2CAD4C0033AAE7 /* ScrollImageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrollImageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		68C006251A2CAD4C0033AAE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		68C006261A2CAD4C0033AAE7 /* ScrollImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollImageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		68C006081A2CAD4C0033AAE7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		68C0061D1A2CAD4C0033AAE7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,7 +39,6 @@
 			isa = PBXGroup;
 			children = (
 				68C0060D1A2CAD4C0033AAE7 /* ScrollImage */,
-				68C006231A2CAD4C0033AAE7 /* ScrollImageTests */,
 				68C0060C1A2CAD4C0033AAE7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,7 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				68C0060B1A2CAD4C0033AAE7 /* ScrollImage.app */,
-				68C006201A2CAD4C0033AAE7 /* ScrollImageTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,23 +72,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		68C006231A2CAD4C0033AAE7 /* ScrollImageTests */ = {
-			isa = PBXGroup;
-			children = (
-				68C006261A2CAD4C0033AAE7 /* ScrollImageTests.swift */,
-				68C006241A2CAD4C0033AAE7 /* Supporting Files */,
-			);
-			path = ScrollImageTests;
-			sourceTree = "<group>";
-		};
-		68C006241A2CAD4C0033AAE7 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				68C006251A2CAD4C0033AAE7 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,24 +92,6 @@
 			productReference = 68C0060B1A2CAD4C0033AAE7 /* ScrollImage.app */;
 			productType = "com.apple.product-type.application";
 		};
-		68C0061F1A2CAD4C0033AAE7 /* ScrollImageTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 68C0062D1A2CAD4C0033AAE7 /* Build configuration list for PBXNativeTarget "ScrollImageTests" */;
-			buildPhases = (
-				68C0061C1A2CAD4C0033AAE7 /* Sources */,
-				68C0061D1A2CAD4C0033AAE7 /* Frameworks */,
-				68C0061E1A2CAD4C0033AAE7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				68C006221A2CAD4C0033AAE7 /* PBXTargetDependency */,
-			);
-			name = ScrollImageTests;
-			productName = ScrollImageTests;
-			productReference = 68C006201A2CAD4C0033AAE7 /* ScrollImageTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,10 +103,6 @@
 				TargetAttributes = {
 					68C0060A1A2CAD4C0033AAE7 = {
 						CreatedOnToolsVersion = 6.1;
-					};
-					68C0061F1A2CAD4C0033AAE7 = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = 68C0060A1A2CAD4C0033AAE7;
 					};
 				};
 			};
@@ -182,7 +120,6 @@
 			projectRoot = "";
 			targets = (
 				68C0060A1A2CAD4C0033AAE7 /* ScrollImage */,
-				68C0061F1A2CAD4C0033AAE7 /* ScrollImageTests */,
 			);
 		};
 /* End PBXProject section */
@@ -198,13 +135,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		68C0061E1A2CAD4C0033AAE7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -217,23 +147,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		68C0061C1A2CAD4C0033AAE7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				68C006271A2CAD4C0033AAE7 /* ScrollImageTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		68C006221A2CAD4C0033AAE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 68C0060A1A2CAD4C0033AAE7 /* ScrollImage */;
-			targetProxy = 68C006211A2CAD4C0033AAE7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		68C006141A2CAD4C0033AAE7 /* Main.storyboard */ = {
@@ -352,40 +266,6 @@
 			};
 			name = Release;
 		};
-		68C0062E1A2CAD4C0033AAE7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ScrollImageTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScrollImage.app/ScrollImage";
-			};
-			name = Debug;
-		};
-		68C0062F1A2CAD4C0033AAE7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ScrollImageTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScrollImage.app/ScrollImage";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -403,14 +283,6 @@
 			buildConfigurations = (
 				68C0062B1A2CAD4C0033AAE7 /* Debug */,
 				68C0062C1A2CAD4C0033AAE7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		68C0062D1A2CAD4C0033AAE7 /* Build configuration list for PBXNativeTarget "ScrollImageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				68C0062E1A2CAD4C0033AAE7 /* Debug */,
-				68C0062F1A2CAD4C0033AAE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
