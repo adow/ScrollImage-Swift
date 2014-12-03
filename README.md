@@ -10,3 +10,6 @@ UIScrollView + UIImageView + AutoLayout by Swift
 最重要的是一个更新 UIImageView 尺寸和位置，以及更新 UIScrollView contentSize 的方法。
 
 但是如果在 AutoLayout 下，由于没有绝对的位置了，所有的位置要使用约束来限制，所以变成了更新约束位置。当图片放大时，要更新图片在 UIScrollView 中的 UIImageView 的约束；
+
+## Reference
+* [ScrollView 与 Autolayout](http://nonomori.farbox.com/post/scrollview-yu-autolayout)
