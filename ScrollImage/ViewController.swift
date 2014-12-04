@@ -18,6 +18,7 @@ class ViewController: UIViewController,UIScrollViewDelegate {
     @IBOutlet weak var imageViewConstraintLeft:NSLayoutConstraint!
     @IBOutlet weak var imageViewConstraintWidth:NSLayoutConstraint!
     @IBOutlet weak var imageViewConstraintHeight:NSLayoutConstraint!
+    var initRatio : CGFloat = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +26,60 @@ class ViewController: UIViewController,UIScrollViewDelegate {
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        let image = imageView.image!
-        let scrollViewSize = self.scrollView.frame.size
-        let widthRatio = image.size.width / imageView.frame.size.width
-        let heightRatio = image.size.height / imageView.frame.size.height
-        var maxRatio = (widthRatio > heightRatio) ? heightRatio : widthRatio
-        maxRatio = fmax(maxRatio, 1.0)
-//        self.scrollView.maximumZoomScale = 10.0
-        self.scrollView.maximumZoomScale = maxRatio ///最大就是图片的100%尺寸
-        self.scrollView.zoomScale = 1.0
-        self.updateConstraints()
+        self.setupImageConstraint()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func setupImageConstraint(){
+        ///初始化约束条件设置，让图片的一边撑满，另一边缩放
+        let image = imageView.image!
+        let imageSize = image.size
+        let scrollViewSize = self.scrollView.frame.size
+        var target_image_width : CGFloat = 0.0
+        var target_image_height : CGFloat = 0.0
+        if imageSize.width < imageSize.height {
+            target_image_width = 100.0
+            target_image_height = imageSize.height / imageSize.width * target_image_width
+        }
+        else{
+            target_image_height = 178.0
+            target_image_width = imageSize.width * target_image_height / imageSize.height
+        }
+        ///不但要修改约束条件，还要修改 imageView 的尺寸
+        var imageViewFrame = self.imageView.frame
+        imageViewFrame.size.width = target_image_width
+        imageViewFrame.size.height = target_image_height
+        self.imageView.frame = imageViewFrame
+        let left_margin : CGFloat = (scrollViewSize.width - target_image_width ) / 2.0
+        let right_margin = left_margin
+        let top_margin : CGFloat = (scrollViewSize.height - target_image_height) / 2.0
+        let bottom_margin = top_margin
+        self.imageViewConstraintTop.constant = top_margin
+        self.imageViewConstraintRight.constant = right_margin
+        self.imageViewConstraintBottom.constant = bottom_margin
+        self.imageViewConstraintLeft.constant = left_margin
+        self.imageViewConstraintWidth.constant = target_image_width
+        self.imageViewConstraintHeight.constant = target_image_height
+        
+        ///maxZoom，放到最大就是图片的大小
+        let maxWidthRatio = imageSize.width / target_image_width
+        let maxHeightRatio = imageSize.height / target_image_height
+        var maxRatio = (maxWidthRatio > maxHeightRatio) ? maxHeightRatio : maxWidthRatio
+        maxRatio = fmax(maxRatio, 1.0)
+        self.scrollView.maximumZoomScale = maxRatio
+        
+        ///initZoom,初始大小，依照一边撑满
+        let initWidthRatio = scrollViewSize.width / target_image_width
+        let initHeightRatio = scrollViewSize.height / target_image_height
+        initRatio = (initWidthRatio > initHeightRatio) ? initHeightRatio : initWidthRatio
+        initRatio = fmax(initRatio, 1.0)
+        self.scrollView.zoomScale = initRatio
+        ///
+//        self.scrollView.zoomScale = 1.0
+        self.updateConstraints()
+        
     }
     ///更新约束
     func updateConstraints(){
@@ -95,12 +136,12 @@ class ViewController: UIViewController,UIScrollViewDelegate {
     }
     ///触摸控制，放大缩小
     @IBAction func onTapGesture(gesture:UITapGestureRecognizer){
-        UIView.animateWithDuration(0.1, animations: { () -> Void in
+        UIView.animateWithDuration(0.1, animations: { [unowned self]() -> Void in
             if self.scrollView.zoomScale != self.scrollView.maximumZoomScale {
                 self.scrollView.zoomScale = self.scrollView.maximumZoomScale
             }
             else{
-                self.scrollView.zoomScale = 1.0
+                self.scrollView.zoomScale = self.initRatio
             }
         })
         
